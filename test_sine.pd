@@ -1,0 +1,120 @@
+#N canvas 1266 817 1120 1021 12;
+#X obj 205 11 adc~ 1 2;
+#X obj 112 42 vsl 15 128 0.1 1000 1 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X floatatom 110 186 5 0 0 0 - - -, f 5;
+#X floatatom 254 278 5 0 2000 0 - - -, f 5;
+#X obj 287 734 dac~ 1 2 3 4;
+#X obj 253 135 vsl 15 128 1 10000 1 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 9800 1;
+#X text 156 64 f_sig;
+#X text 268 82 f_mod;
+#X obj 75 408 s~ c;
+#X obj 73 342 r~ c;
+#X floatatom 367 190 5 0 1 0 - - -, f 5;
+#X obj 366 32 vsl 15 128 0.1 10000 1 0 empty empty empty 0 -9 0 10
+-262144 -1 -1 7500 1;
+#X floatatom 1045 395 5 0 0 0 - - -, f 5;
+#X obj 1046 349 snapshot~;
+#X obj 1117 319 metro 100;
+#X obj 1118 296 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 1160 256 0;
+#X obj 1046 306 vline~;
+#X msg 8 859 bang;
+#X obj 8 884 delay 10000;
+#X msg 9 912 stop;
+#X msg 121 887 start;
+#X msg 53 834 open -bytes 4 halber_Pegel559Hzsweep_dc;
+#X msg 41 798 open -bytes 3 truesinglemodulator_collerPegel_Alles_559Hzsweep_ac_24bit
+;
+#X msg 1047 257 10000 1000;
+#X obj 163 392 moddemod_dc~;
+#X obj 159 111 vsl 15 128 0.1 1000 1 0 empty empty empty 0 -9 0 10
+-262144 -1 -1 1400 1;
+#X floatatom 157 251 5 0 440 0 - - -, f 5;
+#X msg 188 876 open -bytes 3 Hilberto_fixed440mod2000;
+#X obj 92 949 writesf~ 1;
+#X obj 157 304 *~ 1;
+#X obj 156 275 phasor~;
+#X obj 373 382 eurocomb~;
+#X floatatom 453 255 5 0 1 0 - - -, f 5;
+#X obj 453 115 vsl 15 128 0.1 1 1 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 10100 1;
+#X floatatom 544 315 5 0 1 0 - - -, f 5;
+#X obj 543 181 vsl 15 128 0.1 1 1 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 12700 1;
+#X obj 444 416 *~;
+#X obj 244 581 *~;
+#X floatatom 260 538 5 0 1 0 - - -, f 5;
+#X obj 273 400 vsl 15 128 0.1 1 1 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 12700 1;
+#X obj 321 596 *~;
+#X floatatom 337 553 5 0 1 0 - - -, f 5;
+#X obj 336 419 vsl 15 128 0.1 1 1 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 12100 1;
+#X obj 157 327 hip~ 5;
+#X obj 329 637 lop~ 5000;
+#X obj 515 578 rev1~;
+#X floatatom 515 536 5 0 10000 0 - - -, f 5;
+#X obj 515 398 vsl 15 128 0.1 10000 1 0 empty empty empty 0 -9 0 10
+-262144 -1 -1 8300 1;
+#X obj 342 688 rev2~, f 16;
+#X floatatom 608 573 0 0 120 0 - - -;
+#X text 649 570 level \, dB;
+#X floatatom 652 594 0 0 100 0 - - -;
+#X text 693 594 liveness \, 0-100;
+#X floatatom 696 620 0 0 120 0 - - -;
+#X floatatom 740 644 0 0 120 0 - - -;
+#X text 727 620 crossover frequency \, Hz.;
+#X text 773 645 HF damping \, percent;
+#X obj 289 225 phasor~ 0.02;
+#X obj 158 352 lop~ 2000;
+#X obj 254 311 *~ 1;
+#X obj 797 789;
+#X connect 0 0 38 0;
+#X connect 1 0 2 0;
+#X connect 3 0 60 0;
+#X connect 5 0 3 0;
+#X connect 10 0 32 1;
+#X connect 11 0 10 0;
+#X connect 13 0 12 0;
+#X connect 14 0 13 0;
+#X connect 15 0 14 0;
+#X connect 16 0 17 0;
+#X connect 17 0 13 0;
+#X connect 18 0 19 0;
+#X connect 18 0 21 0;
+#X connect 19 0 20 0;
+#X connect 20 0 29 0;
+#X connect 21 0 29 0;
+#X connect 22 0 29 0;
+#X connect 23 0 29 0;
+#X connect 24 0 17 0;
+#X connect 26 0 27 0;
+#X connect 27 0 31 0;
+#X connect 28 0 29 0;
+#X connect 30 0 44 0;
+#X connect 31 0 30 0;
+#X connect 32 1 37 0;
+#X connect 33 0 32 2;
+#X connect 34 0 33 0;
+#X connect 35 0 37 1;
+#X connect 36 0 35 0;
+#X connect 38 0 4 0;
+#X connect 38 0 4 1;
+#X connect 39 0 38 1;
+#X connect 40 0 39 0;
+#X connect 41 0 45 0;
+#X connect 42 0 41 1;
+#X connect 43 0 42 0;
+#X connect 44 0 59 0;
+#X connect 45 0 4 2;
+#X connect 47 0 46 1;
+#X connect 48 0 47 0;
+#X connect 50 0 49 1;
+#X connect 52 0 49 2;
+#X connect 54 0 49 3;
+#X connect 55 0 49 4;
+#X connect 59 0 41 0;
+#X connect 60 0 25 2;
